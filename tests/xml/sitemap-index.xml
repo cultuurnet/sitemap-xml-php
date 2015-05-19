@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ <sitemap>
+  <loc>http://cultuurnet.be/sitemap-foo.xml</loc>
+ </sitemap>
+ <sitemap>
+  <loc>http://cultuurnet.be/sitemap-bar.xml</loc>
+  <lastmod>2015-5-7</lastmod>
+ </sitemap>
+</sitemapindex>
