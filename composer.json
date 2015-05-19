@@ -25,7 +25,8 @@
   },
 
   "require": {
-    "php": ">=5.3"
+    "php": ">=5.3",
+    "nicolopignatelli/valueobjects": "~2.0"
   },
 
   "require-dev": {
