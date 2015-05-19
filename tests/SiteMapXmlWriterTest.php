@@ -10,6 +10,11 @@ abstract class SiteMapXmlWriterTest extends \PHPUnit_Framework_TestCase
     protected $writer;
 
     /**
+     * @var SiteMapXmlEntry[]
+     */
+    protected $entries;
+
+    /**
      * @param SiteMapXmlEntry[] $entries
      *   Array of entries to write to XML.
      * @param string $uri
