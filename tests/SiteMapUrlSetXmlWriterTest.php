@@ -5,7 +5,7 @@ namespace CultuurNet\SiteMapXml;
 use ValueObjects\DateTime\Date;
 use ValueObjects\Web\Url;
 
-class SiteMapUrlSetXmlWriterTest extends \PHPUnit_Framework_TestCase
+class SiteMapUrlSetXmlWriterTest extends SiteMapXmlWriterTest
 {
     /**
      * @var SiteMapUrlSetXmlWriter
@@ -22,30 +22,19 @@ class SiteMapUrlSetXmlWriterTest extends \PHPUnit_Framework_TestCase
      */
     public function it_writes_the_expected_xml()
     {
-        $entries = [
-            [
-                'location' => Url::fromNative('http://cultuurnet.be/foo.html'),
-                'lastModified' => null,
-            ],
-            [
-                'location' => Url::fromNative('http://cultuurnet.be/bar.html'),
-                'lastModified' => Date::fromNative('2015', 'May', '7'),
-            ],
-        ];
+        $entries = [];
 
-        $this->writer->open();
+        $location = Url::fromNative('http://cultuurnet.be/foo.html');
+        $entry = new SiteMapXmlEntry($location);
+        $entries[] = $entry;
 
-        foreach ($entries as $data) {
-            $entry = new SiteMapXmlEntry($data['location']);
+        $location = Url::fromNative('http://cultuurnet.be/bar.html');
+        $lastModified = Date::fromNative('2015', 'May', '7');
+        $entry = new SiteMapXmlEntry($location);
+        $entry->setLastModified($lastModified);
+        $entries[] = $entry;
 
-            if (!empty($data['lastModified'])) {
-                $entry->setLastModified($data['lastModified']);
-            }
-
-            $this->writer->write($entry);
-        }
-
-        $this->writer->close();
+        $this->writeEntries($entries);
 
         $expected = file_get_contents(__DIR__ . '/xml/sitemap.xml');
         $this->expectOutputString($expected);
