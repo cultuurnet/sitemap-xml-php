@@ -1,0 +1,36 @@
+{
+  "name": "cultuurnet/sitemap-xml",
+  "description": "Library for writing sitemap XML.",
+  "license": "Apache-2.0",
+  "keywords": [],
+  "type": "library",
+
+  "authors": [
+    {
+      "name": "Bert Ramakers",
+      "email": "bert@2dotstwice.be"
+    }
+  ],
+
+  "autoload": {
+    "psr-4": {
+      "CultuurNet\\SiteMapXml\\": "src/"
+    }
+  },
+
+  "autoload-dev": {
+    "psr-4": {
+      "CultuurNet\\SiteMapXml\\": "tests/"
+    }
+  },
+
+  "require": {
+    "php": ">=5.3"
+  },
+
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "phing/phing": "~2.10",
+    "squizlabs/php_codesniffer": "~2.2"
+  }
+}

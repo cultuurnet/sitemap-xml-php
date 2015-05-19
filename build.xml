@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Sitemap XML" default="test">
+    <fileset id="php" dir=".">
+        <include name="**/*.php"/>
+        <exclude name="vendor/"/>
+    </fileset>
+
+    <target name="test">
+        <exec command="composer validate" passthru="true" />
+        <phplint>
+            <fileset refid="php"/>
+        </phplint>
+        <phpcodesniffer
+                standard="phpcs-ruleset.xml"
+                format="full"
+                allowedFileExtensions="php"
+                haltonerror="true">
+            <fileset refid="php"/>
+        </phpcodesniffer>
+    </target>
+</project>
