@@ -69,7 +69,7 @@ abstract class SiteMapXmlWriter implements SiteMapXmlWriterInterface
      * @param string $tagName
      * @param SiteMapXmlEntry $entry
      */
-    public function writeElement($tagName, SiteMapXmlEntry $entry)
+    protected function writeElement($tagName, SiteMapXmlEntry $entry)
     {
         $this->writer->startElement($tagName);
         $this->writer->writeElement('loc', (string) $entry->getLocation());
