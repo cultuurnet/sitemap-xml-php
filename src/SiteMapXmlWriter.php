@@ -76,7 +76,7 @@ abstract class SiteMapXmlWriter implements SiteMapXmlWriterInterface
 
         $lastModified = $entry->getLastModified();
         if (!empty($lastModified)) {
-            $this->writer->writeElement('lastmod', (string) $lastModified);
+            $this->writer->writeElement('lastmod', $lastModified->toNativeDateTime()->format('Y-m-d'));
         }
 
         $this->writer->endElement();
